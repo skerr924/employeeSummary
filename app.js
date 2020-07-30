@@ -17,21 +17,44 @@ const render = require("./lib/htmlRenderer");
 
 function promptUser() {
     return inquirer.prompt([
-      {
-        type: "input",
-        name: "name",
-        message: "What is this employee's name?"
-      },
-      {
-        type: "input",
-        name: "email",
-        message: "What is their email address?"
-      },
-      {
-        type: "input",
-        name: "id",
-        message: "What is their employee ID?"
-      }
+        {
+            type: "input", 
+            name: "name", 
+            message: "Enter the employee's name."
+        }, 
+        { 
+            type: "input", 
+            name: "email", 
+            message: "Enter the employee's email address."
+        }, 
+        { 
+            type: "input", 
+            name: "id", 
+            message: "Enter the employee's ID."
+        },
+        {
+            type: "list", 
+            name: "role", 
+            choices: ["Engineer", "Intern", "Manager", "Finish and page"]
+        }, 
+        {
+            type: 'input',
+            name: 'gitHub',
+            message: "Enter the Engineer's gitHub username.",
+            when: (answers) => answers.role === 'Engineer'
+        }, 
+        {
+            type: 'input',
+            name: 'officeNumber',
+            message: "Enter the Manager's office phone number.",
+            when: (answers) => answers.role === 'Manager'
+        }, 
+        {
+            type: 'input',
+            name: 'school',
+            message: "Enter the Intern's school.",
+            when: (answers) => answers.role === 'Intern'
+        }
     ]);
   }
 
