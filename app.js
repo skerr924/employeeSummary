@@ -63,6 +63,7 @@ function promptEmployee() {
         }
     ])
     .then(answers => {     
+        console.log(answers); 
         if (answers.role === "Engineer"){ 
             new Engineer (answers); 
         } else if (answers.role === "Intern"){ 
@@ -70,8 +71,12 @@ function promptEmployee() {
         } else if (answers.role === "Manager"){ 
             new Manager (answers)
         }
-        if (answers.addMore = true){ 
+
+
+        if (answers.addMore === true){ 
             promptEmployee(); 
+        } else { 
+            return; 
         }
     })
 };
