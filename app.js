@@ -65,15 +65,11 @@ function promptEmployee() {
     .then(answers => {     
         if (answers.role === "Engineer"){ 
             new Engineer (answers); 
-            promptEmployee(); 
         } else if (answers.role === "Intern"){ 
             new Intern (answers); 
-            promptEmployee(); 
         } else if (answers.role === "Manager"){ 
             new Manager (answers)
-            promptEmployee(); 
         }
-        
         if (answers.addMore = true){ 
             promptEmployee(); 
         }
