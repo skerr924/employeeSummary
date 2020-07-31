@@ -21,24 +21,7 @@ function promptEmployee() {
         {
             type: "list", 
             name: "role", 
-            choices: [
-                {
-                    name: "Engineer",
-                    value: "Engineer"
-                },
-                {
-                    name: "Intern",
-                    value: "Intern"
-                },
-                {
-                    name: "Manager",
-                    value: "Manager"
-                },
-                {
-                    name: "Finish and create page",
-                    value: 'abort'
-                }
-            ]
+            choices: ["Manager", "Engineer", "Intern"]
         },
         {
             type: "input", 
@@ -72,19 +55,27 @@ function promptEmployee() {
             name: 'school',
             message: "Enter the Intern's school.",
             when: (answers) => answers.role === 'Intern'
-        }])
+        }, 
+        {
+            type: "confirm", 
+            name: "addMore", 
+            message: "Would you like to add another employee?"
+        }
+    ])
     .then(answers => {     
         if (answers.role === "Engineer"){ 
-            new Engineer (answers.gitHub); 
+            new Engineer (answers); 
             promptEmployee(); 
         } else if (answers.role === "Intern"){ 
-            new Intern (answers.school); 
+            new Intern (answers); 
             promptEmployee(); 
         } else if (answers.role === "Manager"){ 
-            new Manager (officeNumber)
+            new Manager (answers)
             promptEmployee(); 
-        } else if (answers.role === "Finish and create page"){ 
-            render(answers); //need to pass in all objects rather than "answers"
+        }
+        
+        if (answers.addMore = true){ 
+            promptEmployee(); 
         }
     })
 };
