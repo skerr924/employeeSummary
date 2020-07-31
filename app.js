@@ -21,7 +21,24 @@ function promptEmployee() {
         {
             type: "list", 
             name: "role", 
-            choices: ["Engineer", "Intern", "Manager", "Finish and create page"]
+            choices: [
+                {
+                    name: "Engineer",
+                    value: "Engineer"
+                },
+                {
+                    name: "Intern",
+                    value: "Intern"
+                },
+                {
+                    name: "Manager",
+                    value: "Manager"
+                },
+                {
+                    name: "Finish and create page",
+                    value: 'abort'
+                }
+            ]
         },
         {
             type: "input", 
@@ -57,7 +74,6 @@ function promptEmployee() {
             when: (answers) => answers.role === 'Intern'
         }])
     .then(answers => {     
-        new Employee(answers.name, answers.email, answers.id); 
         if (answers.role === "Engineer"){ 
             new Engineer (answers.gitHub); 
             promptEmployee(); 
@@ -68,7 +84,7 @@ function promptEmployee() {
             new Manager (officeNumber)
             promptEmployee(); 
         } else if (answers.role === "Finish and create page"){ 
-            render(answers); 
+            render(answers); //need to pass in all objects rather than "answers"
         }
     })
 };
