@@ -18,6 +18,11 @@ const render = require("./lib/htmlRenderer");
 function promptUser() {
     return inquirer.prompt([
         {
+            type: "list", 
+            name: "role", 
+            choices: ["Engineer", "Intern", "Manager", "Finish and page"]
+        },
+        {
             type: "input", 
             name: "name", 
             message: "Enter the employee's name."
@@ -32,11 +37,6 @@ function promptUser() {
             name: "id", 
             message: "Enter the employee's ID."
         },
-        {
-            type: "list", 
-            name: "role", 
-            choices: ["Engineer", "Intern", "Manager", "Finish and page"]
-        }, 
         {
             type: 'input',
             name: 'gitHub',
@@ -55,8 +55,11 @@ function promptUser() {
             message: "Enter the Intern's school.",
             when: (answers) => answers.role === 'Intern'
         }
-    ]);
-  }
+    ])
+};
+
+    
+  render(answers); 
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
