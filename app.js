@@ -63,13 +63,13 @@ function promptEmployee() {
     .then(answers => {     
         console.log(answers); 
         if (answers.role === "Engineer"){ 
-            let temp = new Engineer (answers); 
+            let temp = new Engineer (answers.name, answers.id, answers.email, answers.gitHub); 
             allEmployees.push(temp); 
         } else if (answers.role === "Intern"){ 
-            let temp = new Intern (answers); 
+            let temp = new Intern (answers.name, answers.id, answers.email, answers.school); 
             allEmployees.push(temp); 
         } else if (answers.role === "Manager"){ 
-            let temp = new Manager (answers); 
+            let temp = new Manager (answers.name, answers.id, answers.email, answers.officeNumber); 
             allEmployees.push(temp); 
         }
 
@@ -84,8 +84,10 @@ function promptEmployee() {
 
 function createTempHTML(allEmployees){ 
     const tempHTML = render(allEmployees);  
-    fs.writeFile("team.html", tempHTML); 
-    console.log("successfully wrote to team.html");
+    fs.writeFile(path.join(__dirname, "output", "team.html"), tempHTML, function (err) {
+        if (err) throw err;
+        console.log("successfully wrote to team.html");
+    }) 
     
 }
 
