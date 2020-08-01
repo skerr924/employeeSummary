@@ -9,6 +9,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const allEmployees = []; 
 
 
 promptEmployee(); 
@@ -65,13 +66,15 @@ function promptEmployee() {
     .then(answers => {     
         console.log(answers); 
         if (answers.role === "Engineer"){ 
-            new Engineer (answers); 
+            let temp = new Engineer (answers); 
+            allEmployees.push(temp); 
         } else if (answers.role === "Intern"){ 
-            new Intern (answers); 
+            let temp = new Intern (answers); 
+            allEmployees.push(temp); 
         } else if (answers.role === "Manager"){ 
-            new Manager (answers)
+            let temp = new Manager (answers); 
+            allEmployees.push(temp); 
         }
-
 
         if (answers.addMore === true){ 
             promptEmployee(); 
@@ -80,6 +83,9 @@ function promptEmployee() {
         }
     })
 };
+
+console.log(allEmployees); 
+render(allEmployees);
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
