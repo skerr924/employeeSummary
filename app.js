@@ -61,7 +61,6 @@ function promptEmployee() {
         }
     ])
     .then(answers => {     
-        console.log(answers); 
         if (answers.role === "Engineer"){ 
             let temp = new Engineer (answers.name, answers.id, answers.email, answers.gitHub); 
             allEmployees.push(temp); 
@@ -76,7 +75,6 @@ function promptEmployee() {
         if (answers.addMore === true){ 
             promptEmployee(); 
         } else { 
-            console.log(allEmployees); 
             createTempHTML(allEmployees); 
         }
     })
