@@ -30,11 +30,11 @@ Run an npm install to ensure all required modules are installed before usage.
 # Usage 
 This is a command-line application intended for purely for use within the terminal. By running the command "npm node", the application prompts users with a series of questions, their answers to which will become the content of a templated team.html file for their company' team information to be showcased.
 
-[A video demonstration of the usage of this application can also be found in the assets file:](./assets/applicationDemo.mov)
+[A video demonstration of the usage of this application can also be found in the assets file.](./assets/applicationDemo.mov)
 
-[Sample terminal prompts and responses:](./assets/sampleTerminalPrompts.png)
+[Sample terminal prompts and responses.](./assets/sampleTerminalPrompts.png)
 
-[Sample generated HTML page:](./assets/htmlOutput.png)
+[Sample generated HTML page.](./assets/htmlOutput.png)
 
 [Sample generated HTML page.](./output/exampleOutput.html)
 
