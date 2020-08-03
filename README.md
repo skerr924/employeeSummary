@@ -32,9 +32,9 @@ This is a command-line application intended for purely for use within the termin
 
 A video demonstration of the usage of this application can also be found in the assets file, or linked <a href = "./assets/applicationDemo.mov"> here</a>. 
 
-Sample terminal prompts and responses: <img src = "./assets/sampleTerminalPrompts.png" >
-Sample generated HTML page: <img src = "./output/htmlOutput.png">
-<a href = "../exampleOutput.html">Sample generated HTML page.</a>
+Sample terminal prompts and responses: (./assets/sampleTerminalPrompts.png)
+Sample generated HTML page: <img src = "./assets/htmlOutput.png">
+<a href = "./output/exampleOutput.html">Sample generated HTML page.</a>
 
 <a name="lic"></a>
 # License 
